@@ -27,7 +27,7 @@ npm start
 ```
 yarn start
 ```
-#### 4. Run test
+#### 5. Run test
 - Use npm:
 ```
 npm test
