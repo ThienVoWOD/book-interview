@@ -1,6 +1,6 @@
 [
   {
-    "id": "1",
+    "id": "8274904b-f07b-49a2-baa9-7cdb73cb09ed",
     "title": "To Kill a Mockingbird",
     "author": "Harper Lee",
     "publishedDate": "1960-07-11",
@@ -8,7 +8,7 @@
     "price": 12.99
   },
   {
-    "id": "2",
+    "id": "bd798847-fab4-4853-a37e-0bd6771d1f1e",
     "title": "1984",
     "author": "George Orwell",
     "publishedDate": "1949-06-08",
@@ -16,7 +16,7 @@
     "price": 10.99
   },
   {
-    "id": "3",
+    "id": "9055478b-1e44-42a6-8afe-2d736e28d246",
     "title": "The Catcher in the Rye",
     "author": "J.D. Salinger",
     "publishedDate": "1951-07-16",
@@ -24,7 +24,7 @@
     "price": 9.99
   },
   {
-    "id": "4",
+    "id": "9b1ec141-1bb7-4bd2-ae93-6c2324986711",
     "title": "Pride and Prejudice",
     "author": "Jane Austen",
     "publishedDate": "1813-01-28",
@@ -32,7 +32,7 @@
     "price": 8.99
   },
   {
-    "id": "5",
+    "id": "9211b04d-8d82-4eb8-b524-2bf4bba21c0e",
     "title": "The Hobbit",
     "author": "J.R.R. Tolkien",
     "publishedDate": "1937-09-21",
@@ -40,7 +40,7 @@
     "price": 11.99
   },
   {
-    "id": "6",
+    "id": "50fc5e39-fd1a-41aa-82a1-461cf97c5638",
     "title": "The Adventures of Huckleberry Finn",
     "author": "Mark Twain",
     "publishedDate": "1884-12-10",
@@ -48,7 +48,7 @@
     "price": 7.99
   },
   {
-    "id": "7",
+    "id": "67b54102-fe22-4174-b899-cac2c2c02230",
     "title": "The Lord of the Rings",
     "author": "J.R.R. Tolkien",
     "publishedDate": "1954-07-29",
@@ -56,7 +56,7 @@
     "price": 14.99
   },
   {
-    "id": "8",
+    "id": "d4dce291-bd24-4af0-96f9-fee01bf068c9",
     "title": "The Great Gatsby",
     "author": "F. Scott Fitzgerald",
     "publishedDate": "1925-04-10",

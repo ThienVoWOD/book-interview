@@ -1,6 +1,6 @@
 const { getBooks, getBookById, createBook, updateBook } = require("../../lib/elasticSearch");
-const { bookNotFound } = require("../error/book");
-const { sendErrorResponse, sendSuccessResponse } = require("../util/helper");
+const { bookNotFound } = require("../errors/book");
+const { sendSuccessResponse } = require("../util/helper");
 const { v4: uuidv4 } = require("uuid");
 
 
@@ -33,9 +33,8 @@ exports.getBookById = async (req, res) => {
 exports.createBook = async (req, res) => {
     try {
         const body = req.body;
-
         await createBook({...body, id: uuidv4()});
-        return sendSuccessResponse(201, "success");
+        return res.status(201).send(sendSuccessResponse(201, "success"));
     } catch (error) {
         console.log("ERROR", "Create Book Error ::", error);
         return res.status(500).send(error);

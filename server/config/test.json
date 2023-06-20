@@ -1,0 +1,6 @@
+{
+  "LOG_LEVEL": "debug",
+  "ApiProxyKey": "0d0aaeb7-4ef9-4811-b1e9-71878a86bb51",
+  "ElasticIndexName": "books",
+  "HttpServerPort": 3001
+}

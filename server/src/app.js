@@ -1,27 +1,33 @@
-const app = require("fastify")()
+const app = require("fastify")(),
+  cors = require("@fastify/cors")
 
-const { sendResponse } = require("./api/util/helper");
-const { ApiProxyKey } = require("./lib/appConfig");
+const { preHandlerMiddleware } = require("./lib/preHandlerMiddleware");
 const loggerMiddleware = require("./lib/loggerMiddleware")
 
-app.addHook("preHandler", (req, res, done) => {
-  res.header("Cache-control", "max-age=0, private, must-revalidate");
-  if (req.headers["x-api-key"] !== ApiProxyKey) {
-    console.log(
-      "ERROR",
-      `Invalid API key or missing x-api-key in request '${req.headers["x-api-key"]}'`
-    );
-    res.status(403).send("Forbidden");
-  }
-  done();
+app.register(cors, (instance) => {
+  return (req, callback) => {
+    const corsOptions = {
+      // This is NOT recommended for production as it enables reflection exploits
+      origin: true,
+    };
+
+    // do not include CORS headers for requests from localhost
+    if (/^localhost$/m.test(req.headers.origin)) {
+      corsOptions.origin = false;
+    }
+
+    // callback expects two parameters: error and options
+    callback(null, corsOptions);
+  };
 });
 
+app.addHook("preHandler", (req, res, done) => preHandlerMiddleware(req, res, done));
 app.addHook("onRequest", loggerMiddleware);
 
 require("./lib/elasticSearch");
 
-module.exports = async (cb) => {
-  require("./api/routes/healthCheck")(app);
-  require("./api/routes/book")(app);
+module.exports = (cb) => {
+  require("./api/routes/healthCheckRouter")(app);
+  require("./api/routes/bookRouter")(app);
   cb(app);
 };

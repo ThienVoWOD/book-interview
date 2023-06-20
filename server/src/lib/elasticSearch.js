@@ -1,8 +1,8 @@
-const { ElasticIndexName } = require("./appConfig");
+const { ElasticIndexName, ElasticSearchHost } = require("./appConfig");
 
 const { Client } = require("@elastic/elasticsearch"),
   booksData = require("../../books.json"),
-  client = new Client({ node: "http://localhost:9200" }),
+  client = new Client({ node: ElasticSearchHost }),
   indexObject = { index: ElasticIndexName };
 
 async function createDataToElastic() {
@@ -54,6 +54,8 @@ exports.getBookById = async (id) => {
       },
     },
   });
+
+  console.log(result, "result");
 
   return result.hits.hits;
 };

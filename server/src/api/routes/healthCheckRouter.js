@@ -1,4 +1,4 @@
-const { getHealthCheck } = require("../controllers/healthCheck");
+const { getHealthCheck } = require("../controllers/healthCheckController");
 
 module.exports = function(app) {
   app.get("/health-check", getHealthCheck);

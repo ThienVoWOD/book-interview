@@ -1,7 +1,7 @@
 #!/usr/bin/env node
+require("dotenv").config();
 
 const { HttpServerPort } = require("./src/lib/appConfig");
-
 require("./src/lib/patchConsole");
 
 require("fs").writeFileSync("server.pid", process.pid.toString(), {

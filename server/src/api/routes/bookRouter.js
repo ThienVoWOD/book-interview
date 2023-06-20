@@ -1,5 +1,5 @@
-const { getBooks, getBookById, createBook, updateBook } = require("../controllers/book");
-const { bookCreateSchema, bookUpdateSchema } = require("../schema/book");
+const { getBooks, getBookById, createBook, updateBook } = require("../controllers/bookController");
+const { bookCreateSchema, bookUpdateSchema } = require("../schemas/bookSchema");
 
 
 module.exports = function (app) {

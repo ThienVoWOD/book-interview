@@ -2,5 +2,5 @@
   "LOG_LEVEL": "debug",
   "ApiProxyKey": "f0f86222-a357-4390-9610-3238f39a0a08",
   "ElasticIndexName": "books",
-  "HttpServerPort": 6000
+  "HttpServerPort": 3000
 }

@@ -1,6 +1,4 @@
-const { v4: uuidv4 } = require("uuid"),
-  config = require("config"),
-  fs = require("fs");
+const config = require("config")
 
 const isRequired = (name) => {
   throw new Error(`environment ${name} is required`);
@@ -28,17 +26,21 @@ const extractAndSetEnv = (name, required = true) => {
 
 const LOG_LEVEL = extractAndSetEnv("LOG_LEVEL");
 
-const JwtKeyId = config.has("JwtKeyId") ? config.get("JwtKeyId") : uuidv4();
+const NodeEnv =
+  ["production", "staging", "test", "development"].find(
+    (env) => (process.env.NODE_ENV || "").toLowerCase() === env
+  ) || "development";
+process.env.NODE_ENV = NodeEnv;
+console.log(NodeEnv, "NodeEnv");
 
-// Sanity checks
-// -------------
-config.has("ApiProxyKey") || isRequired("ApiProxyKey");
+const ElasticSearchHost = extractAndSetEnv("ELASTICSEARCH_HOSTS");
+const LogAppName = extractAndSetEnv("APP_NAME", false) || "BOOK-INTERVIEW";
 
 module.exports = {
-  LogAppName: "DEMO-API",
+  LogAppName,
   ApiProxyKey: config.get("ApiProxyKey"),
   HttpServerPort: config.get("HttpServerPort"),
-  JwtKeyId,
   LOG_LEVEL,
   ElasticIndexName: config.get("ElasticIndexName"),
+  ElasticSearchHost,
 };
