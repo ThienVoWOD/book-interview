@@ -31,7 +31,6 @@ const NodeEnv =
     (env) => (process.env.NODE_ENV || "").toLowerCase() === env
   ) || "development";
 process.env.NODE_ENV = NodeEnv;
-console.log(NodeEnv, "NodeEnv");
 
 const ElasticSearchHost = extractAndSetEnv("ELASTICSEARCH_HOSTS");
 const LogAppName = extractAndSetEnv("APP_NAME", false) || "BOOK-INTERVIEW";
